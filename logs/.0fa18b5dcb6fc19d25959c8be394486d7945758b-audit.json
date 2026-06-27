@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Games\\Work\\quesadata\\Marbrit aesthetic\\logs\\.0fa18b5dcb6fc19d25959c8be394486d7945758b-audit.json",
+    "files": [
+        {
+            "date": 1782554145792,
+            "name": "D:\\Games\\Work\\quesadata\\Marbrit aesthetic\\logs\\mcp-puppeteer-2026-06-27.log",
+            "hash": "1f690fba850bb7919c96d547aeb44608937e6ea81a40df118de1a4828cb759ea"
+        }
+    ],
+    "hashType": "sha256"
+}

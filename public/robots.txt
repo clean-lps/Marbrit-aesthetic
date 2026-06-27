@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://marbritaesthetic.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1

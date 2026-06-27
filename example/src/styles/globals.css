@@ -1,0 +1,537 @@
+
+/* ══════════════════════════════════════════════════
+   SMOOTH SCROLL
+   ══════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ══════════════════════════════════════════════════
+   FONTS
+   ══════════════════════════════════════════════════ */
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: italic;
+font-weight: 400;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F01c9275aa0d89a04157a9981ae020f7d7f0c7953.woff2?generation=1778217856101258&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: italic;
+font-weight: 500;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F01c9275aa0d89a04157a9981ae020f7d7f0c7953.woff2?generation=1778217856101258&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: italic;
+font-weight: 600;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F01c9275aa0d89a04157a9981ae020f7d7f0c7953.woff2?generation=1778217856101258&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: italic;
+font-weight: 700;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F01c9275aa0d89a04157a9981ae020f7d7f0c7953.woff2?generation=1778217856101258&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: normal;
+font-weight: 400;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F5a7f94a1fa0961506ca708117a1a8d6e6debafb4.woff2?generation=1777999046067984&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: normal;
+font-weight: 500;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F5a7f94a1fa0961506ca708117a1a8d6e6debafb4.woff2?generation=1777999046067984&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: normal;
+font-weight: 600;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F5a7f94a1fa0961506ca708117a1a8d6e6debafb4.woff2?generation=1777999046067984&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Cormorant Garamond';
+font-style: normal;
+font-weight: 700;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F5a7f94a1fa0961506ca708117a1a8d6e6debafb4.woff2?generation=1777999046067984&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 300;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fb6711decba0d571b538ca01de8a6e70ae4d219af.woff2?generation=1778000057192430&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fb6711decba0d571b538ca01de8a6e70ae4d219af.woff2?generation=1778000057192430&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fb6711decba0d571b538ca01de8a6e70ae4d219af.woff2?generation=1778000057192430&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2Fb6711decba0d571b538ca01de8a6e70ae4d219af.woff2?generation=1778000057192430&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Pinyon Script';
+font-style: normal;
+font-weight: 400;
+font-stretch: normal;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F3d9066b75d17deb96f10f0ddc75aec16f079407d.woff2?generation=1778787540257917&alt=media') format('woff2');
+}
+
+@font-face {
+font-display: auto;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-stretch: 100%;
+unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+src: url('https://storage.googleapis.com/download/storage/v1/b/prd-storytodesign.appspot.com/o/h2d-ext-asset%2F41ca6b7e4818eb81531d8006ff7ddd971c640879.woff2?generation=1778004624505407&alt=media') format('woff2');
+}
+
+/* ══════════════════════════════════════════════════
+   BOOK — smooth shapes + fluid page curl
+   ══════════════════════════════════════════════════ */
+
+/* ── Shell: 3D container ── */
+.book-shell {
+  isolation: isolate;
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+
+/* ── Back cover: the visible book board behind pages ── */
+.book-shell::before {
+  position: absolute;
+  inset: 18px -30px -32px -30px;
+  z-index: -3;
+  content: "";
+  background:
+    linear-gradient(155deg, rgba(72, 40, 50, 0.5), rgba(50, 28, 38, 0.65)),
+    linear-gradient(180deg, rgba(58, 32, 44, 0.9), rgba(38, 20, 30, 0.94));
+  clip-path: url(#book-cover-shape);
+  filter: drop-shadow(0 44px 50px rgba(38, 16, 26, 0.38));
+}
+
+/* ── Front cover: the visible rim around pages ── */
+.book-shell::after {
+  position: absolute;
+  inset: 12px -22px -26px -22px;
+  z-index: -2;
+  content: "";
+  background:
+    linear-gradient(135deg, rgba(88, 52, 64, 0.35), rgba(110, 76, 66, 0.15) 40%, rgba(78, 44, 56, 0.4)),
+    linear-gradient(180deg, rgba(72, 38, 52, 0.86), rgba(50, 28, 40, 0.9));
+  clip-path: url(#book-cover-shape);
+  filter: drop-shadow(0 28px 40px rgba(46, 20, 30, 0.3));
+}
+
+/* ── Pages: paper surface ── */
+.book-page {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 251, 1), rgba(250, 240, 236, 0.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -16px 28px rgba(112, 67, 78, 0.03);
+  transition: background 0.2s ease;
+}
+
+.book-page.cursor-pointer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(112, 67, 78, 0.04);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.book-page.cursor-pointer:hover::before {
+  opacity: 1;
+}
+
+/* Page inner shadows: gutter (spine side) + outer edge */
+.book-page::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(55, 26, 36, 0.08), transparent 8%, transparent 92%, rgba(55, 26, 36, 0.05)),
+    radial-gradient(circle at 50% 100%, rgba(102, 58, 72, 0.03), transparent 20%);
+}
+
+/* Left page: smooth arc on outer (left) edge, straight on spine (right) */
+.book-page-left {
+  clip-path: polygon(
+    0% 9%, 2% 7%, 5% 5.5%, 9% 4.2%, 14% 3.2%, 20% 2.4%,
+    27% 1.8%, 34% 1.5%, 41% 1.4%, 48% 1.6%, 54% 2%,
+    60% 2.6%, 66% 3.2%, 72% 3.9%, 78% 4.6%, 84% 5.4%,
+    90% 6.3%, 95% 7.2%, 98% 8.2%, 100% 9.5%,
+    100% 94.5%, 97% 95.2%, 93% 95.8%, 88% 96.2%,
+    82% 96.4%, 76% 96.3%, 70% 96%, 64% 95.5%,
+    58% 95.2%, 52% 95%, 46% 95.2%, 40% 95.6%,
+    34% 96.1%, 28% 96.5%, 22% 96.8%, 16% 96.9%,
+    10% 96.8%, 6% 96.5%, 3% 96%, 1% 95.5%, 0% 95%
+  );
+}
+
+/* Right page: straight on spine (left), smooth arc on outer (right) edge */
+.book-page-right {
+  clip-path: polygon(
+    0% 9.5%, 1% 8.2%, 3% 7.2%, 6% 6.3%, 10% 5.4%,
+    16% 4.6%, 22% 3.9%, 28% 3.2%, 34% 2.6%,
+    40% 2%, 46% 1.6%, 52% 1.4%, 59% 1.5%,
+    66% 1.8%, 73% 2.4%, 80% 3.2%, 86% 4.2%,
+    91% 5.5%, 95% 7%, 98% 8.5%, 100% 9%,
+    100% 95%, 99% 95.5%, 97% 96%, 94% 96.5%,
+    90% 96.8%, 84% 96.9%, 78% 96.8%, 72% 96.5%,
+    66% 96.1%, 60% 95.6%, 54% 95.2%, 48% 95%,
+    42% 95.2%, 36% 95.5%, 30% 96%, 24% 96.3%,
+    18% 96.4%, 12% 96.2%, 7% 95.8%, 3% 95.2%, 0% 94.5%
+  );
+}
+
+/* ── Spine: clean central gutter, NOT protruding ── */
+.book-spine {
+  background:
+    linear-gradient(90deg,
+      rgba(55, 30, 42, 0) 0%,
+      rgba(55, 30, 42, 0.04) 25%,
+      rgba(200, 170, 160, 0.12) 40%,
+      rgba(220, 195, 188, 0.18) 50%,
+      rgba(200, 170, 160, 0.12) 60%,
+      rgba(55, 30, 42, 0.04) 75%,
+      rgba(55, 30, 42, 0) 100%);
+}
+
+/* Spine depth crease */
+.book-spine::after {
+  position: absolute;
+  inset: 3% 48.5%;
+  content: "";
+  background: linear-gradient(180deg,
+    rgba(65, 36, 48, 0.03),
+    rgba(65, 36, 48, 0.12) 88%,
+    rgba(30, 16, 24, 0.35));
+  border-radius: 0 0 1px 1px;
+}
+
+/* ── Spine shadow lines: subtle crease on each side ── */
+.book-spine-shadow-left,
+.book-spine-shadow-right {
+  position: absolute;
+  top: 3%;
+  bottom: 4%;
+  width: 6px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.book-spine-shadow-left {
+  left: calc(50% - 9px);
+  background: linear-gradient(90deg, rgba(50, 26, 36, 0.05), transparent);
+}
+
+.book-spine-shadow-right {
+  left: calc(50% + 3px);
+  background: linear-gradient(270deg, rgba(50, 26, 36, 0.05), transparent);
+}
+
+/* ══════════════════════════════════════════════════
+   PAGE TURN — controlled by Framer Motion
+   (CSS classes only for base state + reduced motion)
+   ══════════════════════════════════════════════════ */
+
+.book-turn-page {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ── Reduced motion: instant swap ── */
+@media (prefers-reduced-motion: reduce) {
+  .book-turn-page {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .stagger-child {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   SCROLL-DRIVEN SECTION REVEALS
+   ══════════════════════════════════════════════════ */
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal-up {
+  animation: revealUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.reveal-left {
+  animation: revealLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.reveal-right {
+  animation: revealRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.reveal-scale {
+  animation: revealScale linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* ══════════════════════════════════════════════════
+   HERO ENTRANCE ANIMATIONS (time-based, on load)
+   ══════════════════════════════════════════════════ */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heroScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-animate-1 {
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.hero-animate-2 {
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.hero-animate-3 {
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.hero-animate-4 {
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+.hero-animate-5 {
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+}
+
+.hero-animate-6 {
+  animation: heroScaleIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.hero-animate-7 {
+  animation: heroFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
+}
+
+/* ══════════════════════════════════════════════════
+   MICRO-INTERACTIONS
+   ══════════════════════════════════════════════════ */
+
+.press-feedback {
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.press-feedback:hover {
+  transform: translateY(-2px);
+}
+
+.press-feedback:active {
+  transform: scale(0.97) translateY(0);
+  transition-duration: 0.08s;
+}
+
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -24px rgba(71, 37, 42, 0.18);
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* Floating social icons entrance */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.float-social {
+  animation: floatIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.float-social:nth-child(1) { animation-delay: 1s; }
+.float-social:nth-child(2) { animation-delay: 1.1s; }
+.float-social:nth-child(3) { animation-delay: 1.2s; }
+.float-social:nth-child(4) { animation-delay: 1.3s; }
+
+/* Navbar scroll state */
+@keyframes navBlur {
+  from { backdrop-filter: blur(0px); }
+  to { backdrop-filter: blur(12px); }
+}
