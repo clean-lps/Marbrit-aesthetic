@@ -16,7 +16,7 @@
 - Address: 3837 SW 8th St, Coral Gables, FL 33134, United States
 - Year started: 2018
 - Phone: `305-922-1149`
-- Email: `maralisbrito1224@gmail.com`
+- Email: `maralisbrito1224@gmail.com
 - Preferred contact channel: WhatsApp
 - Operating days provided by client: Monday to Saturday
 - Hours provided by client: `10:00 AM - 5:00 PM`
