@@ -15,8 +15,13 @@ import {
 } from "lucide-react";
 import { SEOHead } from "@/shared/lib/SEOHead";
 
-const logoSrc = "/88b39e628c231107b835731e0312f61d.png";
-const floralSrc = "/d4332e29763bf40b194df497d03f58aa.png";
+const deployBase = import.meta.env.BASE_URL;
+const siteUrl = "https://clean-lps.github.io/dnielpy-vinyls-deploy/";
+const assetPath = (path: string) => `${deployBase}${path.replace(/^\//, "")}`;
+const publicUrl = (path = "") => new URL(path.replace(/^\//, ""), siteUrl).toString();
+
+const logoSrc = assetPath("88b39e628c231107b835731e0312f61d.png");
+const floralSrc = assetPath("d4332e29763bf40b194df497d03f58aa.png");
 
 const links = {
   booking: "https://tx.fivease.com/online/cbb?merchantid=60GVM90PQRDS1",
@@ -43,7 +48,7 @@ const services = [
   {
     number: "01",
     title: "Facial Treatments",
-    image: "/bfd12b4c7585ef48a5ab2a8b4795086a.jpg",
+    image: assetPath("bfd12b4c7585ef48a5ab2a8b4795086a.jpg"),
     body: "Targeted protocols for deep cleansing, glow, hydration, texture renewal, and skin recovery based on each client.",
     items: [
       "Deep facial cleansing",
@@ -59,7 +64,7 @@ const services = [
   {
     number: "02",
     title: "Advanced Aesthetics",
-    image: "/354dfe361cc9c6104ad3d3ee29244d40.jpg",
+    image: assetPath("354dfe361cc9c6104ad3d3ee29244d40.jpg"),
     body: "Regenerative and high-demand treatments already listed publicly, reframed into a clearer premium offer.",
     items: [
       "Facial PRP",
@@ -75,7 +80,7 @@ const services = [
   {
     number: "03",
     title: "Body Contouring",
-    image: "/3f78e95e2b103246ebd23ee1ac1505ef.jpg",
+    image: assetPath("3f78e95e2b103246ebd23ee1ac1505ef.jpg"),
     body: "Firming, sculpting, and contour support with Venus Legacy, Ems Sculpt, and tailored body plans.",
     items: [
       "Venus Legacy",
@@ -89,7 +94,7 @@ const services = [
   {
     number: "04",
     title: "Laser Hair Removal",
-    image: "/84268bb5db8cddab06aaa6b5868984d4.jpg",
+    image: assetPath("84268bb5db8cddab06aaa6b5868984d4.jpg"),
     body: "Face and body laser sessions supported by a clean external booking flow and a WhatsApp-led first conversation.",
     items: [
       "Underarms",
@@ -228,31 +233,31 @@ const trustCards = [
 
 const gallery = [
   {
-    src: "/00b176f4983dbd724299ba99c91e36cf.jpg",
+    src: assetPath("00b176f4983dbd724299ba99c91e36cf.jpg"),
     alt: "Marbrit Aesthetic reception area inside the studio.",
     className: "1 / 1 / 3 / 3",
     label: "Studio",
   },
   {
-    src: "/18055694ec56b4d9d105947db5edb916.png",
+    src: assetPath("18055694ec56b4d9d105947db5edb916.png"),
     alt: "Facial treatment close-up.",
     className: "1 / 3 / 2 / 4",
     label: "Facials",
   },
   {
-    src: "/2344c6777414aee5db6c25994b7def15.jpg",
+    src: assetPath("2344c6777414aee5db6c25994b7def15.jpg"),
     alt: "Laser hair removal session on the leg.",
     className: "1 / 4 / 2 / 5",
     label: "Laser",
   },
   {
-    src: "/5b3b4142e96035095027b426f56e05cd.jpg",
+    src: assetPath("5b3b4142e96035095027b426f56e05cd.jpg"),
     alt: "Close-up view of Venus Legacy treatment.",
     className: "2 / 3 / 3 / 4",
     label: "Venus Legacy",
   },
   {
-    src: "/2ec2aa4f1d3295a3b5a3e759d2ad43f8.jpg",
+    src: assetPath("2ec2aa4f1d3295a3b5a3e759d2ad43f8.jpg"),
     alt: "PRP and regenerative treatment materials.",
     className: "2 / 4 / 3 / 5",
     label: "PRP",
@@ -524,10 +529,10 @@ export default function App() {
       }}
     >
       <SEOHead
-        title="Beauty Clinic Coral Gables"
+        title="Marbrit Aesthetic Facial Treatments in Coral Gables"
         description="Marbrit Aesthetic in Coral Gables. Facial treatments, laser hair removal, Venus Legacy, PRP, exosomes, and advanced aesthetics. WhatsApp booking available."
-        canonical="https://marbritaesthetic.com/"
-        ogImage="https://marbritaesthetic.com/18055694ec56b4d9d105947db5edb916.png"
+        canonical={siteUrl}
+        ogImage={publicUrl("18055694ec56b4d9d105947db5edb916.png")}
       />
 
       <div className="isolate relative bg-[linear-gradient(180deg,rgba(248,240,236,1)_0%,rgba(243,229,222,1)_33%,rgba(247,241,238,1)_100%)] text-[lab(13.6294_16.0883_6.40331)]">
@@ -638,7 +643,7 @@ export default function App() {
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[2.4rem] lg:aspect-[0.8]">
                     <img
                       alt="Marbrit Aesthetic reception area with the founder inside the studio."
-                      src="/00b176f4983dbd724299ba99c91e36cf.jpg"
+                      src={assetPath("00b176f4983dbd724299ba99c91e36cf.jpg")}
                       className="absolute inset-0 h-full w-full object-cover"
                       width="800"
                       height="1000"
@@ -766,7 +771,7 @@ export default function App() {
                 <div className="img-zoom relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[rgba(110,76,74,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(244,225,217,0.7))] shadow-[rgba(71,37,42,0.12)_0px_26px_52px_-30px] lg:-rotate-[1.2deg]">
                   <img
                     alt="Marbrit holding treatment equipment inside the clinic."
-                    src="/2cabd1a73a125daaf5265831d93ad336.jpg"
+                    src={assetPath("2cabd1a73a125daaf5265831d93ad336.jpg")}
                     className="absolute inset-0 h-full w-full object-cover"
                     width="800"
                     height="1000"
@@ -895,7 +900,7 @@ export default function App() {
                   <div className="relative z-0 shrink-0 overflow-hidden" style={{ height: "500px", width: "1000px" }} onMouseLeave={() => setActiveArea(null)}>
                     <img
                       alt="Body silhouette showing treatment zones."
-                      src="/54d6ea10685e2ab991c74e0e67248bdd.png"
+                    src={assetPath("54d6ea10685e2ab991c74e0e67248bdd.png")}
                       className="h-full w-full object-contain object-[center_18%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
                     />
                     {mapAreas.map((area) => (
@@ -1405,7 +1410,7 @@ export default function App() {
                   className="flex items-center gap-3 rounded-xl border border-transparent bg-[rgba(110,76,74,0.04)] p-2 transition-all hover:bg-[rgba(110,76,74,0.08)] hover:border-[rgba(110,76,74,0.12)]"
                 >
                   <img
-                    src="/cdm-marketing-logo.jpeg"
+                    src={assetPath("cdm-marketing-logo.jpeg")}
                     alt="CDM Marketing"
                     className="h-9 w-auto rounded-lg shadow-sm grayscale group-hover:grayscale-0 transition-all"
                   />
