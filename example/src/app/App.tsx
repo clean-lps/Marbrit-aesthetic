@@ -13,15 +13,10 @@ import {
   Star,
   Ticket,
 } from "lucide-react";
-import { SEOHead } from "@/shared/lib/SEOHead";
+import { SEOHead } from "./shared/lib/SEOHead";
 
-const deployBase = import.meta.env.BASE_URL;
-const siteUrl = "https://clean-lps.github.io/dnielpy-vinyls-deploy/";
-const assetPath = (path: string) => `${deployBase}${path.replace(/^\//, "")}`;
-const publicUrl = (path = "") => new URL(path.replace(/^\//, ""), siteUrl).toString();
-
-const logoSrc = assetPath("88b39e628c231107b835731e0312f61d.png");
-const floralSrc = assetPath("d4332e29763bf40b194df497d03f58aa.png");
+const logoSrc = "88b39e628c231107b835731e0312f61d.png";
+const floralSrc = "d4332e29763bf40b194df497d03f58aa.png";
 
 const links = {
   booking: "https://tx.fivease.com/online/cbb?merchantid=60GVM90PQRDS1",
@@ -29,7 +24,6 @@ const links = {
   reviews: "https://g.page/r/CXMMamMU4ZISEBM/review",
   instagram: "https://www.instagram.com/marbritaesthetics/",
   tiktok: "https://www.tiktok.com/@marbritsaesthetics",
-  rosa: "https://wa.me/584125123152",
   maps: "https://www.google.com/maps/place/3837+SW+8th+St,+Coral+Gables,+FL+33134",
 } as const;
 
@@ -48,7 +42,8 @@ const services = [
   {
     number: "01",
     title: "Facial Treatments",
-    image: assetPath("bfd12b4c7585ef48a5ab2a8b4795086a.jpg"),
+    image: "d392f84f9e708bd48d8cca5562342e21.jpg",
+    imagePosition: "center 30%",
     body: "Targeted protocols for deep cleansing, glow, hydration, texture renewal, and skin recovery based on each client.",
     items: [
       "Deep facial cleansing",
@@ -64,15 +59,15 @@ const services = [
   {
     number: "02",
     title: "Advanced Aesthetics",
-    image: assetPath("354dfe361cc9c6104ad3d3ee29244d40.jpg"),
-    body: "Regenerative and high-demand treatments already listed publicly, reframed into a clearer premium offer.",
+    image: "354dfe361cc9c6104ad3d3ee29244d40.jpg",
+    imagePosition: "center 30%",
+    body: "Regenerative and high-demand treatments for skin, face, and body — PRP, exosomes, fillers, and more.",
     items: [
       "Facial PRP",
       "Hair PRP",
       "Exosomes",
       "Exosomes + PRP",
       "Fibroblast",
-      "Botox",
       "Fillers",
       "Radiesse",
     ],
@@ -80,7 +75,8 @@ const services = [
   {
     number: "03",
     title: "Body Contouring",
-    image: assetPath("3f78e95e2b103246ebd23ee1ac1505ef.jpg"),
+    image: "3f78e95e2b103246ebd23ee1ac1505ef.jpg",
+    imagePosition: "center 30%",
     body: "Firming, sculpting, and contour support with Venus Legacy, Ems Sculpt, and tailored body plans.",
     items: [
       "Venus Legacy",
@@ -94,8 +90,9 @@ const services = [
   {
     number: "04",
     title: "Laser Hair Removal",
-    image: assetPath("84268bb5db8cddab06aaa6b5868984d4.jpg"),
-    body: "Face and body laser sessions supported by a clean external booking flow and a WhatsApp-led first conversation.",
+    image: "84268bb5db8cddab06aaa6b5868984d4.jpg",
+    imagePosition: "center 25%",
+    body: "Face and body laser sessions with fast booking and direct WhatsApp support for any questions.",
     items: [
       "Underarms",
       "Bikini / Full Bikini",
@@ -112,27 +109,27 @@ const services = [
 const highlights = [
   {
     number: "01",
-    accent: "Relevant",
-    title: "treatment mix",
-    body: "Venus Legacy, laser, PRP, exosomes, and advanced facials are already part of the live public offer.",
+    accent: "Full range",
+    title: "of treatments",
+    body: "Facials, laser, PRP, exosomes, Venus Legacy, and body contouring — all available under one roof.",
   },
   {
     number: "02",
-    accent: "WhatsApp-first",
-    title: "conversion path",
-    body: "The clearest path today is still a WhatsApp conversation first, then external booking once the service is defined.",
+    accent: "Direct",
+    title: "WhatsApp support",
+    body: "Ask questions, confirm your treatment, and book directly through WhatsApp — no waiting, no runaround.",
   },
   {
     number: "03",
-    accent: "Physical studio",
-    title: "in Coral Gables",
-    body: "The business already has a visible address, real channels, and a consistent local presence across its public footprint.",
+    accent: "Located in",
+    title: "Coral Gables",
+    body: "A visible studio with a real address, consistent hours, and a local presence you can trust.",
   },
   {
     number: "04",
-    accent: "Real room",
-    title: "and real equipment",
-    body: "The current brand assets show Marbrit, the reception area, laser sessions, facial care, and Venus Legacy in the actual studio.",
+    accent: "Real",
+    title: "studio and results",
+    body: "Every photo on this site is taken inside the actual treatment rooms with real equipment and real clients.",
   },
 ] as const;
 
@@ -142,28 +139,28 @@ const mapAreas = [
     items: ["Hydrafacial", "Deep cleansing", "Oxygeneo"],
     className: "left-[0%] top-[2%]",
     connector: "left-full",
-    zoneClassName: "left-[22%] top-[4%] h-[14%] w-[56%]",
+    zoneClassName: "left-[20%] top-[3%] h-[18%] w-[62%]",
   },
   {
     title: "Regeneration",
     items: ["PRP", "Exosomes", "Peels"],
     className: "left-[0%] top-[38%]",
     connector: "left-full",
-    zoneClassName: "left-[20%] top-[20%] h-[16%] w-[60%]",
+    zoneClassName: "left-[18%] top-[22%] h-[20%] w-[64%]",
   },
   {
     title: "Facial firmness",
     items: ["HIFU", "Venus Legacy", "Radio frequency"],
     className: "right-[0%] top-[2%]",
     connector: "right-full flex-row-reverse",
-    zoneClassName: "left-[22%] top-[38%] h-[14%] w-[56%]",
+    zoneClassName: "left-[20%] top-[42%] h-[18%] w-[62%]",
   },
   {
     title: "Body sculpting",
     items: ["Venus Legacy", "Wood therapy", "Carboxytherapy"],
     className: "right-[0%] top-[38%]",
     connector: "right-full flex-row-reverse",
-    zoneClassName: "left-[16%] top-[54%] h-[22%] w-[68%]",
+    zoneClassName: "left-[14%] top-[60%] h-[24%] w-[72%]",
   },
   {
     title: "Laser zones",
@@ -213,54 +210,59 @@ const packages = [
 const trustCards = [
   {
     quote:
-      "WhatsApp remains the clearest channel to answer questions, confirm the right treatment, and move each client forward with confidence.",
-    author: "Primary contact path",
+      "WhatsApp is the fastest way to get answers, confirm your treatment, and schedule your visit — all in one conversation.",
+    author: "Direct contact",
     label: "WhatsApp",
   },
   {
     quote:
-      "The live Fivease schedule already lists facials, laser, Venus Legacy, and packages, so the site only needs to guide people there better.",
-    author: "Booking system in place",
+      "Browse available times for facials, laser, Venus Legacy, and packages — then book instantly through Fivease.",
+    author: "Online booking",
     label: "Fivease",
   },
   {
     quote:
-      "Instagram, TikTok, and the direct Google review link are already part of the current brand ecosystem and should stay visible.",
-    author: "Public footprint",
-    label: "Social and reviews",
+      "Follow Marbrit on Instagram and TikTok for real treatment clips, before-and-after results, and studio moments.",
+    author: "Social media",
+    label: "Instagram & TikTok",
   },
 ] as const;
 
 const gallery = [
   {
-    src: assetPath("00b176f4983dbd724299ba99c91e36cf.jpg"),
+    src: "00b176f4983dbd724299ba99c91e36cf.jpg",
     alt: "Marbrit Aesthetic reception area inside the studio.",
     className: "1 / 1 / 3 / 3",
     label: "Studio",
+    position: "center 30%",
   },
   {
-    src: assetPath("18055694ec56b4d9d105947db5edb916.png"),
+    src: "18055694ec56b4d9d105947db5edb916.png",
     alt: "Facial treatment close-up.",
     className: "1 / 3 / 2 / 4",
     label: "Facials",
+    position: "center 25%",
   },
   {
-    src: assetPath("2344c6777414aee5db6c25994b7def15.jpg"),
+    src: "2344c6777414aee5db6c25994b7def15.jpg",
     alt: "Laser hair removal session on the leg.",
     className: "1 / 4 / 2 / 5",
     label: "Laser",
+    position: "center 35%",
   },
   {
-    src: assetPath("5b3b4142e96035095027b426f56e05cd.jpg"),
+    src: "5b3b4142e96035095027b426f56e05cd.jpg",
     alt: "Close-up view of Venus Legacy treatment.",
     className: "2 / 3 / 3 / 4",
     label: "Venus Legacy",
+    position: "center 30%",
   },
   {
-    src: assetPath("2ec2aa4f1d3295a3b5a3e759d2ad43f8.jpg"),
+    src: "2ec2aa4f1d3295a3b5a3e759d2ad43f8.jpg",
     alt: "PRP and regenerative treatment materials.",
     className: "2 / 4 / 3 / 5",
     label: "PRP",
+    position: "center 30%",
   },
 ] as const;
 
@@ -291,7 +293,7 @@ function FlowerDecoration({
     <img
       alt=""
       aria-hidden="true"
-      src={floralSrc}
+      src={`${import.meta.env.BASE_URL}${floralSrc}`}
       className={`pointer-events-none absolute select-none ${mirrored ? "-scale-x-100" : ""} ${className}`}
     />
   );
@@ -307,14 +309,14 @@ function BrandMark({
   const scriptColor =
     variant === "light"
       ? "text-[oklab(0.97_0.006_0.01)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
-      : "text-[lab(25.8245_32.3458_11.7661)]";
-  const labelColor = variant === "light" ? "text-white/84" : "text-[lab(25.2471_15.9431_6.95071)]";
+      : "text-[lab(65.6_23.4_15.3)]";
+  const labelColor = variant === "light" ? "text-white/84" : "text-[lab(15.5_11.5_10.8)]";
 
   return (
     <span aria-label="Marbrit Aesthetic" className="inline-flex items-center gap-3">
       <img
         alt="Marbrit Aesthetic logo"
-        src={logoSrc}
+        src={`${import.meta.env.BASE_URL}${logoSrc}`}
         className={compact ? "h-11 w-11 rounded-full object-cover" : "h-14 w-14 rounded-full object-cover"}
       />
       <span className="flex flex-col leading-[16px]">
@@ -339,7 +341,7 @@ function BulletList({ items, dark = false }: { items: readonly string[]; dark?: 
           className={`flex items-start gap-2 text-[13px] leading-[19px] ${dark ? "text-[oklab(0.984998_0.00513196_0.00615114_/_0.92)]/88" : "text-[oklab(0.260001_0.0475461_0.0154568_/_0.88)]/88"
             }`}
         >
-          <span className="mt-[6px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[lab(60.0349_21.7772_24.7388)]"></span>
+          <span className="mt-[6px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[lab(65.6_23.4_15.3)]"></span>
           <span>{item}</span>
         </li>
       ))}
@@ -363,31 +365,28 @@ function ServicePage({
       className={`book-page ${isLeft ? "book-page-left border-r border-[rgba(110,76,74,0.08)]" : "book-page-right"} relative flex h-full flex-col overflow-hidden ${onClick ? "cursor-pointer" : ""}`}
       onClick={onClick}
     >
-      <div className="relative h-[340px] shrink-0 overflow-hidden">
-        <img alt={service.title} src={service.image} className="absolute inset-0 h-full w-full object-cover" />
-        <div className={`absolute inset-0 ${muted ? "bg-[linear-gradient(180deg,rgba(43,24,33,0.1),rgba(43,24,33,0.48))]" : "bg-[linear-gradient(180deg,rgba(43,24,33,0.02),rgba(43,24,33,0.28))]"}`}></div>
-        <div className="absolute left-5 top-5 inline-flex h-10 min-w-10 items-center justify-center rounded-full bg-white/90 px-3 text-[13px] font-semibold leading-[18px] text-[lab(25.8245_32.3458_11.7661)] shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
-          {service.number}
-        </div>
+      <div className="book-page-image relative shrink-0 overflow-hidden" style={{ height: "55%" }}>
+        <img alt={service.title} src={`${import.meta.env.BASE_URL}${service.image}`} className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: service.imagePosition || "center" }} />
+        <div className={`absolute inset-0 ${muted ? "bg-[linear-gradient(180deg,rgba(42,24,20,0.1),rgba(42,24,20,0.48))]" : "bg-[linear-gradient(180deg,rgba(42,24,20,0.02),rgba(42,24,20,0.28))]"}`}></div>
         <div className={`absolute right-5 top-5 rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-[1.6px] backdrop-blur-sm ${muted ? "border-white/20 bg-white/12 text-white/90" : "border-white/55 bg-white/18 text-white"}`}>
           Signature
         </div>
       </div>
 
-      <div className={`flex min-h-0 flex-1 flex-col p-5 lg:p-6 ${muted ? "bg-[linear-gradient(180deg,rgba(56,31,42,0.98),rgba(79,45,57,0.98))] text-white" : ""}`}>
+      <div className={`flex min-h-0 flex-1 flex-col p-5 lg:p-6 ${muted ? "bg-[linear-gradient(180deg,rgba(176,112,104,0.98),rgba(150,88,80,0.98))] text-white" : ""}`}>
         <div className="mb-2">
           <p className={`mb-1 text-[10px] font-medium uppercase tracking-[1.8px] ${muted ? "text-white/55" : "text-[rgba(103,66,78,0.55)]"}`}>
             Service chapter
           </p>
           <h3
-            className={`text-[28px] font-semibold leading-[1.04] ${muted ? "text-white" : "text-[lab(13.6294_16.0883_6.40331)]"}`}
+            className={`text-[28px] font-semibold leading-[1.04] ${muted ? "text-white" : "text-[lab(15.5_11.5_10.8)]"}`}
             style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
           >
             {service.title}
           </h3>
         </div>
 
-        <p className={`text-[13px] leading-[20px] ${muted ? "text-white/80" : "text-[lab(25.2471_15.9431_6.95071)]"}`}>
+        <p className={`text-[13px] leading-[20px] ${muted ? "text-white/80" : "text-[lab(15.5_11.5_10.8)]"}`}>
           {service.body}
         </p>
 
@@ -397,7 +396,7 @@ function ServicePage({
             target="_blank"
             rel="noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className={`inline-flex min-h-9 items-center gap-[5px] rounded-full px-4 py-2 text-[11px] font-medium uppercase tracking-[1.8px] shadow-[rgba(71,37,42,0.1)_0px_14px_28px_-18px] transition duration-200 ease-out hover:scale-[0.97] motion-reduce:transition-none ${muted ? "bg-white text-[lab(25.8245_32.3458_11.7661)]" : "bg-[lab(25.8245_32.3458_11.7661)] text-[lab(98.2272_1.72979_2.3571)]"}`}
+            className={`inline-flex min-h-9 items-center gap-[5px] rounded-full px-4 py-2 text-[11px] font-medium uppercase tracking-[1.8px] shadow-[rgba(71,37,42,0.1)_0px_14px_28px_-18px] transition duration-200 ease-out hover:scale-[0.97] motion-reduce:transition-none ${muted ? "bg-white text-[lab(65.6_23.4_15.3)]" : "bg-[lab(65.6_23.4_15.3)] text-[lab(98.2272_1.72979_2.3571)]"}`}
           >
             Book this service
             <ChevronRight size={13} />
@@ -414,7 +413,7 @@ function ServicePage({
 
 function StarRow() {
   return (
-    <div className="flex gap-1 text-[lab(60.0349_21.7772_24.7388)]">
+    <div className="flex gap-1 text-[lab(65.6_23.4_15.3)]">
       {Array.from({ length: 5 }).map((_, index) => (
         <Star key={index} size={16} fill="currentColor" strokeWidth={1.6} />
       ))}
@@ -432,9 +431,9 @@ function FloatingSocials() {
           target="_blank"
           rel="noreferrer"
           aria-label={label}
-          className="float-social press-feedback group flex min-h-11 items-center justify-center gap-2 rounded-full border border-[oklab(0.640001_0.0534498_0.0272538_/_0.4)]/40 bg-[oklab(0.984998_0.00513196_0.00615114_/_0.96)]/95 px-3 py-2 text-[lab(13.6294_16.0883_6.40331)] shadow-[rgba(71,37,42,0.16)_0px_18px_36px_-18px] md:justify-start md:px-4"
+          className="float-social press-feedback group flex min-h-11 items-center justify-center gap-2 rounded-full border border-[oklab(0.640001_0.0534498_0.0272538_/_0.4)]/40 bg-[oklab(0.984998_0.00513196_0.00615114_/_0.96)]/95 px-3 py-2 text-[lab(15.5_11.5_10.8)] shadow-[rgba(71,37,42,0.16)_0px_18px_36px_-18px] md:justify-start md:px-4"
         >
-          <Icon size={16} className="shrink-0 text-[lab(25.8245_32.3458_11.7661)]" />
+          <Icon size={16} className="shrink-0 text-[lab(65.6_23.4_15.3)]" />
           <span className="hidden text-[11px] font-medium uppercase tracking-[1.8px] md:block">{label}</span>
         </a>
       ))}
@@ -529,17 +528,17 @@ export default function App() {
       }}
     >
       <SEOHead
-        title="Marbrit Aesthetic Facial Treatments in Coral Gables"
+        title="Beauty Clinic Coral Gables"
         description="Marbrit Aesthetic in Coral Gables. Facial treatments, laser hair removal, Venus Legacy, PRP, exosomes, and advanced aesthetics. WhatsApp booking available."
-        canonical={siteUrl}
-        ogImage={publicUrl("18055694ec56b4d9d105947db5edb916.png")}
+        canonical="https://marbritaesthetic.com/"
+        ogImage="https://marbritaesthetic.com/18055694ec56b4d9d105947db5edb916.png"
       />
 
-      <div className="isolate relative bg-[linear-gradient(180deg,rgba(248,240,236,1)_0%,rgba(243,229,222,1)_33%,rgba(247,241,238,1)_100%)] text-[lab(13.6294_16.0883_6.40331)]">
-        <header className="fixed inset-x-0 top-0 z-[50] border-b border-white/12 bg-[linear-gradient(90deg,rgba(26,21,47,0.92)_0%,rgba(72,43,62,0.86)_100%)] backdrop-blur-md">
+      <div className="isolate relative bg-[linear-gradient(180deg,rgba(248,240,236,1)_0%,rgba(243,229,222,1)_33%,rgba(247,241,238,1)_100%)] text-[lab(15.5_11.5_10.8)]">
+        <header className="fixed inset-x-0 top-0 z-[50] border-b border-[rgba(140,90,80,0.12)] bg-[rgba(250,243,239,0.92)] backdrop-blur-md">
           <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
             <a href="#home" className="shrink-0">
-              <BrandMark compact variant="light" />
+              <BrandMark compact variant="dark" />
             </a>
 
             <nav className="hidden items-center gap-8 lg:flex">
@@ -547,7 +546,7 @@ export default function App() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-[12px] font-medium uppercase tracking-[2.16px] text-white/90 transition hover:text-[lab(83.4091_11.9963_7.37354)]"
+                  className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)] transition hover:text-[lab(54.66_30.32_6.37)]"
                 >
                   {item.label}
                 </a>
@@ -558,7 +557,7 @@ export default function App() {
               href={links.booking}
               target="_blank"
               rel="noreferrer"
-              className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(98.2272_1.72979_2.3571)] px-4 py-[10px] text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(25.8245_32.3458_11.7661)]"
+              className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(98.2272_1.72979_2.3571)] px-4 py-[10px] text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(65.6_23.4_15.3)]"
             >
               <CalendarDays size={16} />
               Book
@@ -580,22 +579,22 @@ export default function App() {
 
             <div className="mx-auto grid min-h-[calc(100svh-7rem)] max-w-[1320px] gap-12 px-5 pb-18 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
               <div className="relative z-10 max-w-xl lg:max-w-none">
-                <p className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(110,76,74,0.18)] bg-white/75 px-4 py-[6px] text-[11.2px] font-medium uppercase tracking-[2.464px] text-[lab(25.8245_32.3458_11.7661)] shadow-[rgba(71,37,42,0.08)_0px_16px_30px_-22px]">
-                  <span className="block h-[6px] w-[6px] rounded-full bg-[lab(60.0349_21.7772_24.7388)]"></span>
+                <p className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(110,76,74,0.18)] bg-white/75 px-4 py-[6px] text-[11.2px] font-medium uppercase tracking-[2.464px] text-[lab(65.6_23.4_15.3)] shadow-[rgba(71,37,42,0.08)_0px_16px_30px_-22px]">
+                  <span className="block h-[6px] w-[6px] rounded-full bg-[lab(65.6_23.4_15.3)]"></span>
                   Coral Gables | Since 2018
                 </p>
 
                 <h1
-                  className="hero-animate-2 max-w-[9ch] text-[72px] font-medium leading-[0.88] text-[lab(13.6294_16.0883_6.40331)] sm:text-[88px] lg:text-[112px]"
+                  className="hero-animate-2 max-w-[9ch] text-[72px] font-medium leading-[0.88] text-[lab(15.5_11.5_10.8)] sm:text-[88px] lg:text-[112px]"
                   style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                 >
                   Elevated beauty with{" "}
-                  <span className="text-[lab(25.8245_32.3458_11.7661)]" style={{ fontFamily: '"Pinyon Script", "Pinyon Script Fallback", cursive' }}>
+                  <span className="text-[lab(65.6_23.4_15.3)]" style={{ fontFamily: '"Pinyon Script", "Pinyon Script Fallback", cursive' }}>
                     Marbrit
                   </span>
                 </h1>
 
-                <p className="hero-animate-3 mt-6 max-w-lg text-[17px] leading-[29px] text-[lab(25.2471_15.9431_6.95071)] lg:text-[18px] lg:leading-[31px]">
+                <p className="hero-animate-3 mt-6 max-w-lg text-[17px] leading-[29px] text-[lab(15.5_11.5_10.8)] lg:text-[18px] lg:leading-[31px]">
                   Facial care, laser hair removal, Venus Legacy, and advanced treatments shaped into a warmer, more direct premium experience.
                 </p>
 
@@ -603,7 +602,7 @@ export default function App() {
                   {heroTags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex min-h-10 items-center rounded-full border border-white/40 bg-white/55 px-4 py-2 text-[11px] font-medium uppercase tracking-[1.8px] text-[lab(25.8245_32.3458_11.7661)] backdrop-blur-sm"
+                      className="inline-flex min-h-10 items-center rounded-full border border-white/40 bg-white/55 px-4 py-2 text-[11px] font-medium uppercase tracking-[1.8px] text-[lab(65.6_23.4_15.3)] backdrop-blur-sm"
                     >
                       {tag}
                     </span>
@@ -615,7 +614,7 @@ export default function App() {
                     href={links.booking}
                     target="_blank"
                     rel="noreferrer"
-                    className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(25.8245_32.3458_11.7661)] px-6 py-3 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(98.2272_1.72979_2.3571)] shadow-[rgba(71,37,42,0.18)_0px_22px_42px_-18px]"
+                    className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(65.6_23.4_15.3)] px-6 py-3 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(98.2272_1.72979_2.3571)] shadow-[rgba(71,37,42,0.18)_0px_22px_42px_-18px]"
                   >
                     <Ticket size={16} />
                     View booking
@@ -624,15 +623,15 @@ export default function App() {
                     href={links.whatsapp}
                     target="_blank"
                     rel="noreferrer"
-                    className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(98.2272_1.72979_2.3571)] px-6 py-3 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(25.8245_32.3458_11.7661)] shadow-[rgba(71,37,42,0.08)_0px_16px_30px_-22px]"
+                    className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(98.2272_1.72979_2.3571)] px-6 py-3 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(65.6_23.4_15.3)] shadow-[rgba(71,37,42,0.08)_0px_16px_30px_-22px]"
                   >
                     <MessageCircle size={16} />
                     WhatsApp
                   </a>
                 </div>
 
-                <div className="hero-animate-7 mt-10 flex items-center gap-2 text-[14px] leading-[20px] text-[lab(25.2471_15.9431_6.95071)]">
-                  <MapPin size={16} className="shrink-0 text-[lab(25.8245_32.3458_11.7661)]" />
+                <div className="hero-animate-7 mt-10 flex items-center gap-2 text-[14px] leading-[20px] text-[lab(15.5_11.5_10.8)]">
+                  <MapPin size={16} className="shrink-0 text-[lab(65.6_23.4_15.3)]" />
                   <span>3837 SW 8th St, Coral Gables, FL 33134</span>
                 </div>
               </div>
@@ -643,7 +642,7 @@ export default function App() {
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[2.4rem] lg:aspect-[0.8]">
                     <img
                       alt="Marbrit Aesthetic reception area with the founder inside the studio."
-                      src={assetPath("00b176f4983dbd724299ba99c91e36cf.jpg")}
+                      src={`${import.meta.env.BASE_URL}00b176f4983dbd724299ba99c91e36cf.jpg`}
                       className="absolute inset-0 h-full w-full object-cover"
                       width="800"
                       height="1000"
@@ -653,12 +652,12 @@ export default function App() {
 
                 <div className="hero-animate-7 absolute -left-4 bottom-7 rounded-[1rem] border border-white/60 bg-white/78 px-6 py-4 shadow-[rgba(71,37,42,0.16)_0px_22px_42px_-24px] backdrop-blur-sm">
                   <p
-                    className="text-[34px] font-semibold leading-[38px] text-[lab(25.8245_32.3458_11.7661)]"
+                    className="text-[34px] font-semibold leading-[38px] text-[lab(65.6_23.4_15.3)]"
                     style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                   >
                     2018
                   </p>
-                  <p className="text-[12px] uppercase tracking-[2.16px] text-[lab(25.2471_15.9431_6.95071)]">Coral Gables | Miami</p>
+                  <p className="text-[12px] uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)]">Coral Gables | Miami</p>
                 </div>
               </div>
             </div>
@@ -666,17 +665,20 @@ export default function App() {
 
           <section id="services" className="relative py-28">
             <FlowerDecoration className="left-[-6rem] top-6 w-[320px] opacity-16 md:w-[460px]" mirrored />
+            <FlowerDecoration className="right-[-6rem] bottom-6 w-[300px] opacity-14 md:w-[420px]" />
+            <FlowerDecoration className="left-[20%] bottom-[-4rem] w-[260px] opacity-12 md:w-[360px]" mirrored />
+            <FlowerDecoration className="right-[15%] top-[-2rem] w-[240px] opacity-10 md:w-[340px]" />
             <div className="mx-auto max-w-7xl px-5 sm:px-8">
               <div className="reveal-up mb-14 max-w-3xl mx-auto text-center">
                 <p className="mb-4 text-[12px] font-medium uppercase tracking-[3.36px] text-[lab(98.2272_1.72979_2.3571)]">Services</p>
                 <h2
-                  className="text-[44px] font-medium leading-[1.05] text-[lab(13.6294_16.0883_6.40331)] sm:text-[54px]"
+                  className="text-[44px] font-medium leading-[1.05] text-[lab(15.5_11.5_10.8)] sm:text-[54px]"
                   style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                 >
-                  Real services, real images, <span className="text-[lab(25.8245_32.3458_11.7661)]">cleaner language</span>.
+                  Real services, real images, <span className="text-[lab(65.6_23.4_15.3)]">cleaner language</span>.
                 </h2>
-                <p className="mt-5 mx-auto max-w-xl text-center leading-[26px] text-[lab(25.2471_15.9431_6.95071)]">
-                  Facials, advanced treatments, body contouring, and laser — easier to trust, easier to navigate.
+                <p className="mt-5 mx-auto max-w-xl text-center leading-[26px] text-[lab(15.5_11.5_10.8)]">
+                  Facials, advanced treatments, body contouring, and laser — each one clearly explained and easy to book.
                 </p>
               </div>
 
@@ -732,8 +734,8 @@ export default function App() {
                             style={{
                               opacity: curlOpacity,
                               background: turnDirection === "next"
-                                ? "linear-gradient(90deg, rgba(42,18,28,0.22) 0%, rgba(42,18,28,0.08) 4%, rgba(42,18,28,0.02) 10%, transparent 22%, transparent 100%)"
-                                : "linear-gradient(270deg, rgba(42,18,28,0.22) 0%, rgba(42,18,28,0.08) 4%, rgba(42,18,28,0.02) 10%, transparent 22%, transparent 100%)",
+                                ? "linear-gradient(90deg, rgba(42,24,20,0.22) 0%, rgba(42,24,20,0.08) 4%, rgba(42,24,20,0.02) 10%, transparent 22%, transparent 100%)"
+                                : "linear-gradient(270deg, rgba(42,24,20,0.22) 0%, rgba(42,24,20,0.08) 4%, rgba(42,24,20,0.02) 10%, transparent 22%, transparent 100%)",
                             }}
                           />
                         </motion.div>
@@ -764,14 +766,14 @@ export default function App() {
             </div>
           </section>
 
-          <section id="experience" className="relative bg-[rgba(255,250,247,0.72)] py-28 text-[lab(14.79_16.087_6.38604)]">
+          <section id="experience" className="relative bg-[rgba(255,250,247,0.72)] py-28 text-[lab(15.5_11.5_10.8)]">
             <FlowerDecoration className="right-[-9rem] top-[-4rem] w-[430px] opacity-18 md:w-[540px]" />
             <div className="mx-auto grid max-w-7xl gap-16 px-5 sm:px-8 lg:grid-cols-2 lg:items-center">
               <div className="reveal-left relative">
                 <div className="img-zoom relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[rgba(110,76,74,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(244,225,217,0.7))] shadow-[rgba(71,37,42,0.12)_0px_26px_52px_-30px] lg:-rotate-[1.2deg]">
                   <img
                     alt="Marbrit holding treatment equipment inside the clinic."
-                    src={assetPath("2cabd1a73a125daaf5265831d93ad336.jpg")}
+                    src={`${import.meta.env.BASE_URL}2cabd1a73a125daaf5265831d93ad336.jpg`}
                     className="absolute inset-0 h-full w-full object-cover"
                     width="800"
                     height="1000"
@@ -782,17 +784,17 @@ export default function App() {
               <div className="reveal-right">
                 <p className="mb-4 text-[12px] font-medium uppercase tracking-[3.36px] text-[lab(98.2272_1.72979_2.3571)]">Why clients choose Marbrit</p>
                 <h2
-                  className="text-[44px] font-medium leading-[1.04] text-[lab(13.6294_16.0883_6.40331)] sm:text-[54px]"
+                  className="text-[44px] font-medium leading-[1.04] text-[lab(15.5_11.5_10.8)] sm:text-[54px]"
                   style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                 >
                   More credibility,{" "}
-                  <span className="text-[lab(25.8245_32.3458_11.7661)]" style={{ fontFamily: '"Pinyon Script", "Pinyon Script Fallback", cursive' }}>
+                  <span className="text-[lab(65.6_23.4_15.3)]" style={{ fontFamily: '"Pinyon Script", "Pinyon Script Fallback", cursive' }}>
                     less filler
                   </span>
                   .
                 </h2>
-                <p className="mt-5 max-w-lg leading-[26px] text-[lab(25.2471_15.9431_6.95071)]">
-                  The strongest version of this site does not invent a new brand. It takes what Marbrit already shows publicly and makes it clearer, more consistent, and more trustworthy.
+                <p className="mt-5 max-w-lg leading-[26px] text-[lab(15.5_11.5_10.8)]">
+                  Every treatment, every image, and every detail on this site comes directly from Marbrit's real practice — no stock photos, no invented promises.
                 </p>
 
                 <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -801,7 +803,7 @@ export default function App() {
                       key={item.number}
                       className={[
                         "rounded-[1.45rem] p-6 shadow-[rgba(71,37,42,0.1)_0px_18px_34px_-24px]",
-                        index === 1 ? "bg-[linear-gradient(180deg,rgba(63,34,48,1)_0%,rgba(97,58,72,1)_100%)] text-white lg:-translate-y-4" : "",
+                        index === 1 ? "bg-[linear-gradient(180deg,rgba(176,112,104,1)_0%,rgba(150,88,80,1)_100%)] text-white lg:-translate-y-4" : "",
                         index === 2 ? "bg-[rgba(244,228,220,0.92)] lg:translate-y-4" : "",
                         index === 0 ? "border border-[rgba(110,76,74,0.12)] bg-white/90" : "",
                         index === 3 ? "border border-[rgba(110,76,74,0.12)] bg-white/84" : "",
@@ -815,13 +817,13 @@ export default function App() {
                         {item.number}
                       </span>
                       <h3
-                        className={`mt-3 text-[22px] font-semibold leading-[28px] ${index === 1 ? "text-white" : "text-[lab(13.6294_16.0883_6.40331)]"
+                        className={`mt-3 text-[22px] font-semibold leading-[28px] ${index === 1 ? "text-white" : "text-[lab(15.5_11.5_10.8)]"
                           }`}
                         style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                       >
-                        <span className={index === 1 ? "text-[lab(83.4091_11.9963_7.37354)]" : "text-[lab(25.8245_32.3458_11.7661)]"}>{item.accent}</span> {item.title}
+                        <span className={index === 1 ? "text-[lab(81.9_11.2_9.8)]" : "text-[lab(65.6_23.4_15.3)]"}>{item.accent}</span> {item.title}
                       </h3>
-                      <p className={`mt-2 text-[14px] leading-[23px] ${index === 1 ? "text-white/84" : "text-[lab(25.2471_15.9431_6.95071)]"}`}>
+                      <p className={`mt-2 text-[14px] leading-[23px] ${index === 1 ? "text-white/84" : "text-[lab(15.5_11.5_10.8)]"}`}>
                         {item.body}
                       </p>
                     </div>
@@ -836,10 +838,11 @@ export default function App() {
             className="relative overflow-hidden py-24 text-white"
             style={{
               backgroundImage:
-                "linear-gradient(160deg, rgba(42,24,34,1) 0%, rgba(68,38,52,1) 40%, rgba(88,48,64,1) 100%)",
+                "linear-gradient(160deg, rgba(140,78,72,1) 0%, rgba(160,95,88,1) 40%, rgba(176,112,104,1) 100%)",
             }}
           >
             <FlowerDecoration className="left-[-8rem] top-[-5rem] w-[380px] opacity-10 md:w-[480px]" mirrored />
+            <FlowerDecoration className="right-[-6rem] bottom-[-4rem] w-[320px] opacity-12 md:w-[420px]" />
 
             <div className="mx-auto max-w-7xl px-5 sm:px-8">
               <div className="reveal-up mb-12 text-center">
@@ -855,7 +858,7 @@ export default function App() {
                   style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                 >
                   Face and body care, now with a{" "}
-                  <span className="text-[lab(83.4091_11.9963_7.37354)]" style={{ fontFamily: '"Pinyon Script", "Pinyon Script Fallback", cursive' }}>
+                  <span className="text-[lab(81.9_11.2_9.8)]" style={{ fontFamily: '"Pinyon Script", "Pinyon Script Fallback", cursive' }}>
                     clearer read
                   </span>.
                 </h2>
@@ -881,7 +884,7 @@ export default function App() {
                             <ul className="mt-2 space-y-1">
                               {area.items.map((item) => (
                                 <li key={item} className="flex items-center gap-1.5 text-[12px] leading-[17px] text-white/68">
-                                  <span className={`h-[4px] w-[4px] rounded-full transition-colors duration-300 ${isActive ? "bg-[lab(83.4091_11.9963_7.37354)]" : "bg-white/25"}`}></span>
+                                  <span className={`h-[4px] w-[4px] rounded-full transition-colors duration-300 ${isActive ? "bg-[lab(81.9_11.2_9.8)]" : "bg-white/25"}`}></span>
                                   {item}
                                 </li>
                               ))}
@@ -889,7 +892,7 @@ export default function App() {
                           </div>
                           <div className="absolute top-1/2 -right-8 flex -translate-y-1/2 items-center">
                             <span className={`h-px transition-all duration-300 ${isActive ? "w-8 bg-white/55" : "w-5 bg-white/18"}`}></span>
-                            <span className={`h-[6px] w-[6px] rounded-full border-[1.5px] transition-all duration-300 ${isActive ? "border-[lab(83.4091_11.9963_7.37354)] bg-[lab(83.4091_11.9963_7.37354)]/25" : "border-white/22 bg-transparent"}`}></span>
+                            <span className={`h-[6px] w-[6px] rounded-full border-[1.5px] transition-all duration-300 ${isActive ? "border-[lab(81.9_11.2_9.8)] bg-[lab(81.9_11.2_9.8)]/25" : "border-white/22 bg-transparent"}`}></span>
                           </div>
                         </div>
                       );
@@ -900,7 +903,7 @@ export default function App() {
                   <div className="relative z-0 shrink-0 overflow-hidden" style={{ height: "500px", width: "1000px" }} onMouseLeave={() => setActiveArea(null)}>
                     <img
                       alt="Body silhouette showing treatment zones."
-                    src={assetPath("54d6ea10685e2ab991c74e0e67248bdd.png")}
+                      src={`${import.meta.env.BASE_URL}54d6ea10685e2ab991c74e0e67248bdd.png`}
                       className="h-full w-full object-contain object-[center_18%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
                     />
                     {mapAreas.map((area) => (
@@ -930,14 +933,14 @@ export default function App() {
                             <ul className="mt-2 space-y-1">
                               {area.items.map((item) => (
                                 <li key={item} className="flex items-center gap-1.5 text-[12px] leading-[17px] text-white/68">
-                                  <span className={`h-[4px] w-[4px] rounded-full transition-colors duration-300 ${isActive ? "bg-[lab(83.4091_11.9963_7.37354)]" : "bg-white/25"}`}></span>
+                                  <span className={`h-[4px] w-[4px] rounded-full transition-colors duration-300 ${isActive ? "bg-[lab(81.9_11.2_9.8)]" : "bg-white/25"}`}></span>
                                   {item}
                                 </li>
                               ))}
                             </ul>
                           </div>
                           <div className="absolute top-1/2 -left-8 flex -translate-y-1/2 items-center">
-                            <span className={`h-[6px] w-[6px] rounded-full border-[1.5px] transition-all duration-300 ${isActive ? "border-[lab(83.4091_11.9963_7.37354)] bg-[lab(83.4091_11.9963_7.37354)]/25" : "border-white/22 bg-transparent"}`}></span>
+                            <span className={`h-[6px] w-[6px] rounded-full border-[1.5px] transition-all duration-300 ${isActive ? "border-[lab(81.9_11.2_9.8)] bg-[lab(81.9_11.2_9.8)]/25" : "border-white/22 bg-transparent"}`}></span>
                             <span className={`h-px transition-all duration-300 ${isActive ? "w-8 bg-white/55" : "w-5 bg-white/18"}`}></span>
                           </div>
                         </div>
@@ -963,21 +966,21 @@ export default function App() {
             </div>
           </section>
 
-          <section className="relative bg-[rgba(255,250,247,0.74)] py-28 text-[lab(14.79_16.087_6.38604)]">
+          <section className="relative bg-[rgba(255,250,247,0.74)] py-28 text-[lab(15.5_11.5_10.8)]">
             <FlowerDecoration className="right-[-7rem] bottom-[-6rem] w-[360px] opacity-16 md:w-[470px]" />
             <div className="mx-auto max-w-7xl px-5 sm:px-8">
               <div className="reveal-up mb-12 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div className="max-w-3xl">
                   <p className="mb-4 text-[12px] font-medium uppercase tracking-[3.36px] text-[lab(98.2272_1.72979_2.3571)]">A moment for yourself</p>
                   <h2
-                    className="max-w-[14ch] text-[44px] font-medium leading-[1.02] text-[lab(13.6294_16.0883_6.40331)] sm:max-w-none sm:text-[54px]"
+                    className="max-w-[14ch] text-[44px] font-medium leading-[1.02] text-[lab(15.5_11.5_10.8)] sm:max-w-none sm:text-[54px]"
                     style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                   >
                     <span className="block">The studio, the specialist,</span>
-                    <span className="block">and the equipment already speak for the brand.</span>
+                    <span className="block">and the real results.</span>
                   </h2>
-                  <p className="mt-5 max-w-xl leading-[26px] text-[lab(25.2471_15.9431_6.95071)]">
-                    This section keeps the original mosaic, but now it relies on the business&apos;s own imagery instead of generic filler. That raises trust immediately.
+                  <p className="mt-5 max-w-xl leading-[26px] text-[lab(15.5_11.5_10.8)]">
+                    Real photos from the actual treatment rooms, equipment, and results — because trust starts with what you can actually see.
                   </p>
                 </div>
 
@@ -985,23 +988,45 @@ export default function App() {
                   href={links.instagram}
                   target="_blank"
                   rel="noreferrer"
-                  className="press-feedback inline-flex min-h-11 items-center gap-2 self-start rounded-full border border-[rgba(110,76,74,0.16)] bg-white/82 px-5 py-3 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(13.6294_16.0883_6.40331)] shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px]"
+                  className="press-feedback inline-flex min-h-11 items-center gap-2 self-start rounded-full border border-[rgba(110,76,74,0.16)] bg-white/82 px-5 py-3 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(15.5_11.5_10.8)] shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px]"
                 >
                   <Instagram size={16} />
                   @marbritaesthetics
                 </a>
               </div>
 
-              <div className="reveal-scale grid auto-rows-[220px] gap-4 lg:grid-cols-4">
+              <div className="reveal-scale hidden gap-4 lg:grid lg:grid-cols-4 lg:auto-rows-[220px]">
                 {gallery.map((item) => (
                   <div
                     key={item.src}
                     className="img-zoom relative overflow-hidden rounded-[1rem] border border-[rgba(110,76,74,0.12)] shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px]"
                     style={{ gridArea: item.className }}
                   >
-                    <img alt={item.alt} src={item.src} className="absolute inset-0 h-full w-full object-cover" width="600" height="400" />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(43,24,33,0.04),rgba(43,24,33,0.54))]"></div>
-                    <span className="absolute bottom-3 left-3 rounded-full bg-white/88 px-3 py-1 text-[10.4px] font-medium uppercase tracking-[1.664px] text-[lab(25.8245_32.3458_11.7661)]">
+                    <img alt={item.alt} src={`${import.meta.env.BASE_URL}${item.src}`} className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: item.position || "center" }} width="600" height="400" />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(42,24,20,0.04),rgba(42,24,20,0.54))]"></div>
+                    <span className="absolute bottom-3 left-3 rounded-full bg-white/88 px-3 py-1 text-[10.4px] font-medium uppercase tracking-[1.664px] text-[lab(65.6_23.4_15.3)]">
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="reveal-scale grid gap-4 lg:hidden">
+                <div className="img-zoom relative col-span-2 overflow-hidden rounded-[1rem] border border-[rgba(110,76,74,0.12)] shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px] aspect-[4/5]">
+                  <img alt={gallery[0].alt} src={`${import.meta.env.BASE_URL}${gallery[0].src}`} className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: gallery[0].position || "center" }} width="600" height="800" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(42,24,20,0.04),rgba(42,24,20,0.54))]"></div>
+                  <span className="absolute bottom-3 left-3 rounded-full bg-white/88 px-3 py-1 text-[10.4px] font-medium uppercase tracking-[1.664px] text-[lab(65.6_23.4_15.3)]">
+                    {gallery[0].label}
+                  </span>
+                </div>
+                {gallery.slice(1, 3).map((item) => (
+                  <div
+                    key={item.src}
+                    className="img-zoom relative overflow-hidden rounded-[1rem] border border-[rgba(110,76,74,0.12)] shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px] aspect-square"
+                  >
+                    <img alt={item.alt} src={`${import.meta.env.BASE_URL}${item.src}`} className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: item.position || "center" }} width="400" height="400" />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(42,24,20,0.04),rgba(42,24,20,0.54))]"></div>
+                    <span className="absolute bottom-3 left-3 rounded-full bg-white/88 px-3 py-1 text-[10.4px] font-medium uppercase tracking-[1.664px] text-[lab(65.6_23.4_15.3)]">
                       {item.label}
                     </span>
                   </div>
@@ -1010,47 +1035,47 @@ export default function App() {
 
               <div className="mt-10 grid gap-4 lg:grid-cols-3">
                 <div className="flex items-start gap-4 rounded-[1rem] border border-[rgba(110,76,74,0.12)] bg-white/84 p-6 shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px]">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                     <Sparkles size={18} />
                   </span>
                   <div>
                     <h3
-                      className="text-[18px] font-semibold leading-[28px] text-[lab(13.6294_16.0883_6.40331)]"
+                      className="text-[18px] font-semibold leading-[28px] text-[lab(15.5_11.5_10.8)]"
                       style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                     >
                       Real treatment room
                     </h3>
-                    <p className="mt-1 text-[14px] leading-[22.75px] text-[lab(25.2471_15.9431_6.95071)]">Reception, equipment, and treatment moments taken from the actual studio.</p>
+                    <p className="mt-1 text-[14px] leading-[22.75px] text-[lab(15.5_11.5_10.8)]">Photos of the actual studio, equipment, and treatment rooms — what you see is what you get.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 rounded-[1rem] border border-[rgba(110,76,74,0.12)] bg-white/84 p-6 shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px]">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                     <MessageCircle size={18} />
                   </span>
                   <div>
                     <h3
-                      className="text-[18px] font-semibold leading-[28px] text-[lab(13.6294_16.0883_6.40331)]"
+                      className="text-[18px] font-semibold leading-[28px] text-[lab(15.5_11.5_10.8)]"
                       style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                     >
                       Direct communication
                     </h3>
-                    <p className="mt-1 text-[14px] leading-[22.75px] text-[lab(25.2471_15.9431_6.95071)]">WhatsApp stays visible as the most immediate action throughout the page.</p>
+                    <p className="mt-1 text-[14px] leading-[22.75px] text-[lab(15.5_11.5_10.8)]">Send a message anytime — questions, appointment requests, or treatment guidance, all through WhatsApp.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 rounded-[1rem] border border-[rgba(110,76,74,0.12)] bg-white/84 p-6 shadow-[rgba(71,37,42,0.08)_0px_18px_34px_-24px]">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                     <CalendarDays size={18} />
                   </span>
                   <div>
                     <h3
-                      className="text-[18px] font-semibold leading-[28px] text-[lab(13.6294_16.0883_6.40331)]"
+                      className="text-[18px] font-semibold leading-[28px] text-[lab(15.5_11.5_10.8)]"
                       style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                     >
-                      Live booking flow
+                      Easy online booking
                     </h3>
-                    <p className="mt-1 text-[14px] leading-[22.75px] text-[lab(25.2471_15.9431_6.95071)]">Fivease remains the final booking destination, but the path toward it now feels cleaner.</p>
+                    <p className="mt-1 text-[14px] leading-[22.75px] text-[lab(15.5_11.5_10.8)]">Choose your service, pick a time, and book directly through Fivease — fast and simple.</p>
                   </div>
                 </div>
               </div>
@@ -1060,7 +1085,7 @@ export default function App() {
                   href={links.booking}
                   target="_blank"
                   rel="noreferrer"
-                  className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(25.8245_32.3458_11.7661)] px-7 py-4 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(98.2272_1.72979_2.3571)] shadow-[rgba(71,37,42,0.16)_0px_22px_42px_-20px]"
+                  className="press-feedback inline-flex min-h-11 items-center gap-2 rounded-full bg-[lab(65.6_23.4_15.3)] px-7 py-4 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(98.2272_1.72979_2.3571)] shadow-[rgba(71,37,42,0.16)_0px_22px_42px_-20px]"
                 >
                   Book an appointment
                   <ChevronRight size={16} />
@@ -1075,14 +1100,14 @@ export default function App() {
               <div className="reveal-up mx-auto mb-16 max-w-2xl text-center">
                 <p className="mb-4 text-[12px] font-medium uppercase tracking-[3.36px] text-[rgba(96,74,74,0.72)]">Packages</p>
                 <h2
-                  className="text-[44px] font-medium leading-[1.05] text-[lab(13.6294_16.0883_6.40331)] sm:text-[54px]"
+                  className="text-[44px] font-medium leading-[1.05] text-[lab(15.5_11.5_10.8)] sm:text-[54px]"
                   style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                 >
-                  The block stays. The content now matches{" "}
-                  <span className="text-[lab(25.8245_32.3458_11.7661)]">real packages</span>.
+                  Real packages,{" "}
+                  <span className="text-[lab(65.6_23.4_15.3)]">real savings</span>.
                 </h2>
-                <p className="mt-5 leading-[26px] text-[lab(25.2471_15.9431_6.95071)]">
-                  The public booking page already lists service bundles and package options. It makes more sense to amplify that than to invent promotional names without backing.
+                <p className="mt-5 leading-[26px] text-[lab(15.5_11.5_10.8)]">
+                  Book a bundle of sessions and get more value out of each treatment. Packages are available for facials, laser, and body contouring.
                 </p>
               </div>
 
@@ -1093,15 +1118,15 @@ export default function App() {
                     className={[
                       "card-lift relative flex flex-col rounded-[2rem] p-8 shadow-[rgba(71,37,42,0.14)_0px_28px_52px_-26px]",
                       pkg.featured
-                        ? "bg-[linear-gradient(180deg,rgba(63,34,48,1)_0%,rgba(97,58,72,1)_100%)] text-[lab(98.2272_1.72979_2.3571)] lg:-translate-y-5 lg:scale-[1.02]"
-                        : "border border-[rgba(110,76,74,0.12)] bg-white/86 text-[lab(14.79_16.087_6.38604)]",
+                        ? "bg-[linear-gradient(180deg,rgba(176,112,104,1)_0%,rgba(150,88,80,1)_100%)] text-[lab(98.2272_1.72979_2.3571)] lg:-translate-y-5 lg:scale-[1.02]"
+                        : "border border-[rgba(110,76,74,0.12)] bg-white/86 text-[lab(15.5_11.5_10.8)]",
                       index === 0 ? "lg:rotate-[-2deg]" : "",
                       index === 2 ? "lg:rotate-[2deg] lg:translate-y-6" : "",
                     ].join(" ")}
                   >
                     <div className="mb-5 flex items-center justify-between gap-3">
                       <p
-                        className={`text-[12px] font-medium uppercase tracking-[2.4px] ${pkg.featured ? "text-white/72" : "text-[lab(25.8245_32.3458_11.7661)]"
+                        className={`text-[12px] font-medium uppercase tracking-[2.4px] ${pkg.featured ? "text-white/72" : "text-[lab(65.6_23.4_15.3)]"
                           }`}
                       >
                         {pkg.eyebrow}
@@ -1130,8 +1155,8 @@ export default function App() {
                       target="_blank"
                       rel="noreferrer"
                       className={`mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-[14px] text-[12px] font-medium uppercase tracking-[1.92px] ${pkg.featured
-                        ? "bg-[lab(98.2272_1.72979_2.3571)] text-[lab(25.8245_32.3458_11.7661)]"
-                        : "bg-[lab(25.8245_32.3458_11.7661)] text-[lab(98.2272_1.72979_2.3571)]"
+                        ? "bg-[lab(98.2272_1.72979_2.3571)] text-[lab(65.6_23.4_15.3)]"
+                        : "bg-[lab(65.6_23.4_15.3)] text-[lab(98.2272_1.72979_2.3571)]"
                         }`}
                     >
                       View in booking
@@ -1148,7 +1173,7 @@ export default function App() {
             className="relative overflow-hidden py-28 text-[lab(98.2272_1.72979_2.3571)]"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, rgba(49,28,40,1) 0%, rgba(82,44,62,1) 50%, rgba(103,54,71,1) 100%)",
+                "linear-gradient(135deg, rgba(140,78,72,1) 0%, rgba(160,95,88,1) 50%, rgba(176,112,104,1) 100%)",
             }}
           >
             <FlowerDecoration className="left-[-9rem] top-[-6rem] w-[420px] opacity-14 md:w-[540px]" mirrored />
@@ -1162,8 +1187,8 @@ export default function App() {
                     className="text-[44px] font-medium leading-[1.04] text-[lab(98.2272_1.72979_2.3571)] sm:text-[54px]"
                     style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                   >
-                    No invented testimonials. Only{" "}
-                    <span className="text-[lab(83.4091_11.9963_7.37354)]">real public trust</span> signals.
+                    Trusted by real clients,{" "}
+                    <span className="text-[lab(81.9_11.2_9.8)]">proven by results</span>.
                   </h2>
                 </div>
 
@@ -1171,7 +1196,7 @@ export default function App() {
                   href={links.reviews}
                   target="_blank"
                   rel="noreferrer"
-                  className="press-feedback inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-white px-6 py-[14px] text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(25.8245_32.3458_11.7661)] shadow-[rgba(255,255,255,0.14)_0px_16px_34px_-24px]"
+                  className="press-feedback inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-white px-6 py-[14px] text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(65.6_23.4_15.3)] shadow-[rgba(255,255,255,0.14)_0px_16px_34px_-24px]"
                 >
                   Leave a review
                   <Star size={16} />
@@ -1185,13 +1210,13 @@ export default function App() {
                     className={[
                       "card-lift flex h-full flex-col rounded-[1.8rem] p-7 shadow-[rgba(25,12,16,0.24)_0px_24px_48px_-28px]",
                       index === 1
-                        ? "border border-white/10 bg-[rgba(255,244,239,0.96)] text-[lab(13.6294_16.0883_6.40331)]"
+                        ? "border border-white/10 bg-[rgba(255,244,239,0.96)] text-[lab(15.5_11.5_10.8)]"
                         : "border border-white/12 bg-white/8 text-[lab(98.2272_1.72979_2.3571)] backdrop-blur-sm",
                     ].join(" ")}
                   >
                     <StarRow />
                     <blockquote
-                      className={`mt-5 grow basis-0 text-[22px] leading-[34px] ${index === 1 ? "text-[lab(13.6294_16.0883_6.40331)]" : "text-white/95"
+                      className={`mt-5 grow basis-0 text-[22px] leading-[34px] ${index === 1 ? "text-[lab(15.5_11.5_10.8)]" : "text-white/95"
                         }`}
                       style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                     >
@@ -1220,22 +1245,22 @@ export default function App() {
                   <div className="p-8 sm:p-12">
                     <p className="mb-4 text-[12px] font-medium uppercase tracking-[3.36px] text-[lab(98.2272_1.72979_2.3571)]">Visit us</p>
                     <h2
-                      className="text-[44px] font-medium leading-[1.04] text-[lab(13.6294_16.0883_6.40331)] sm:text-[54px]"
+                      className="text-[44px] font-medium leading-[1.04] text-[lab(15.5_11.5_10.8)] sm:text-[54px]"
                       style={{ fontFamily: '"Cormorant Garamond", "Cormorant Garamond Fallback", serif' }}
                     >
-                      Everything important, in one complete close.
+                      Everything you need, in one place.
                     </h2>
-                    <p className="mt-5 max-w-md leading-[26px] text-[lab(25.2471_15.9431_6.95071)]">
-                      Address, hours, phone, email, payment methods, and the two shortcuts that matter most right now: WhatsApp and external booking.
+                    <p className="mt-5 max-w-md leading-[26px] text-[lab(15.5_11.5_10.8)]">
+                      Address, hours, phone, email, and payment methods — plus quick access to WhatsApp and online booking.
                     </p>
 
                     <dl className="mt-10 space-y-6">
                       <div className="flex gap-4">
-                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                           <MapPin size={18} />
                         </span>
                         <div>
-                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(25.2471_15.9431_6.95071)]">Address</dt>
+                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)]">Address</dt>
                           <dd className="mt-1">
                             <a href={links.maps} target="_blank" rel="noreferrer">
                               3837 SW 8th St, Coral Gables, FL 33134
@@ -1245,21 +1270,21 @@ export default function App() {
                       </div>
 
                       <div className="flex gap-4">
-                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                           <Clock3 size={18} />
                         </span>
                         <div>
-                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(25.2471_15.9431_6.95071)]">Hours</dt>
+                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)]">Hours</dt>
                           <dd className="mt-1">Monday to Saturday | 10:00 AM - 5:00 PM</dd>
                         </div>
                       </div>
 
                       <div className="flex gap-4">
-                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                           <Phone size={18} />
                         </span>
                         <div>
-                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(25.2471_15.9431_6.95071)]">Phone</dt>
+                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)]">Phone</dt>
                           <dd className="mt-1">
                             <a href="tel:+13059221149">(305) 922-1149</a>
                           </dd>
@@ -1267,11 +1292,11 @@ export default function App() {
                       </div>
 
                       <div className="flex gap-4">
-                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                           <MessageCircle size={18} />
                         </span>
                         <div>
-                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(25.2471_15.9431_6.95071)]">Email</dt>
+                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)]">Email</dt>
                           <dd className="mt-1">
                             <a href="mailto:maralisbrito1224@gmail.com">maralisbrito1224@gmail.com</a>
                           </dd>
@@ -1279,11 +1304,11 @@ export default function App() {
                       </div>
 
                       <div className="flex gap-4">
-                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(83.4091_11.9963_7.37354)] text-[lab(25.8245_32.3458_11.7661)]">
+                        <span className="mt-[2px] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[lab(81.9_11.2_9.8)] text-[lab(65.6_23.4_15.3)]">
                           <Sparkles size={18} />
                         </span>
                         <div>
-                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(25.2471_15.9431_6.95071)]">Payment methods</dt>
+                          <dt className="text-[12px] font-medium uppercase tracking-[2.16px] text-[lab(15.5_11.5_10.8)]">Payment methods</dt>
                           <dd className="mt-1">Zelle | Debit and credit cards | Cash</dd>
                         </div>
                       </div>
@@ -1294,7 +1319,7 @@ export default function App() {
                         href={links.booking}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[lab(25.8245_32.3458_11.7661)] px-7 py-4 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(98.2272_1.72979_2.3571)]"
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[lab(65.6_23.4_15.3)] px-7 py-4 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(98.2272_1.72979_2.3571)]"
                       >
                         <CalendarDays size={16} />
                         Book
@@ -1303,7 +1328,7 @@ export default function App() {
                         href={links.whatsapp}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[rgba(110,76,74,0.12)] bg-[rgba(244,232,225,0.8)] px-7 py-4 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(13.6294_16.0883_6.40331)]"
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[rgba(110,76,74,0.12)] bg-[rgba(244,232,225,0.8)] px-7 py-4 text-[12px] font-medium uppercase tracking-[1.92px] text-[lab(15.5_11.5_10.8)]"
                       >
                         <MessageCircle size={16} />
                         WhatsApp
@@ -1331,20 +1356,18 @@ export default function App() {
             <div className="grid gap-10 lg:grid-cols-[1.35fr_0.85fr_1fr_1.1fr]">
               <div>
                 <BrandMark variant="dark" />
-                <p className="mt-5 max-w-xs text-[14px] leading-[22.75px] text-[lab(25.2471_15.9431_6.95071)]">
+                <p className="mt-5 max-w-xs text-[14px] leading-[22.75px] text-[lab(15.5_11.5_10.8)]">
                   Facial and body aesthetics in Coral Gables with a stronger focus on real treatments, real imagery, and direct communication.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-3 text-[12px] uppercase tracking-[1.6px] text-[lab(25.2471_15.9431_6.95071)]">
+                <div className="mt-6 flex flex-wrap gap-3 text-[12px] uppercase tracking-[1.6px] text-[lab(15.5_11.5_10.8)]">
                   <span>Women-focused care</span>
-                  <span>|</span>
-                  <span>WhatsApp first</span>
                   <span>|</span>
                   <span>Since 2018</span>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-[12px] font-medium uppercase tracking-[2.4px] text-[lab(25.2471_15.9431_6.95071)]">Navigation</h3>
+                <h3 className="text-[12px] font-medium uppercase tracking-[2.4px] text-[lab(15.5_11.5_10.8)]">Navigation</h3>
                 <ul className="mt-5 space-y-3 text-[14px] leading-[20px] text-[oklab(0.260001_0.0475461_0.0154568_/_0.85)]/85">
                   {navItems.map((item) => (
                     <li key={item.href} className="list-none">
@@ -1355,7 +1378,7 @@ export default function App() {
               </div>
 
               <div>
-                <h3 className="text-[12px] font-medium uppercase tracking-[2.4px] text-[lab(25.2471_15.9431_6.95071)]">Signature services</h3>
+                <h3 className="text-[12px] font-medium uppercase tracking-[2.4px] text-[lab(15.5_11.5_10.8)]">Signature services</h3>
                 <ul className="mt-5 space-y-3 text-[14px] leading-[20px] text-[oklab(0.260001_0.0475461_0.0154568_/_0.85)]/85">
                   <li className="list-none">Hydrafacial and deep cleansing</li>
                   <li className="list-none">Laser hair removal</li>
@@ -1366,7 +1389,7 @@ export default function App() {
               </div>
 
               <div>
-                <h3 className="text-[12px] font-medium uppercase tracking-[2.4px] text-[lab(25.2471_15.9431_6.95071)]">Contact and links</h3>
+                <h3 className="text-[12px] font-medium uppercase tracking-[2.4px] text-[lab(15.5_11.5_10.8)]">Contact and links</h3>
                 <ul className="mt-5 space-y-3 text-[14px] leading-[20px] text-[oklab(0.260001_0.0475461_0.0154568_/_0.85)]/85">
                   <li className="list-none">
                     <a href={links.maps} target="_blank" rel="noreferrer">
@@ -1385,22 +1408,17 @@ export default function App() {
                       Book with Fivease
                     </a>
                   </li>
-                  <li className="list-none">
-                    <a href={links.rosa} target="_blank" rel="noreferrer">
-                      Rosa | +58 412 512 3152
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className="mt-12 flex flex-col items-center gap-6 border-t border-[rgba(110,76,74,0.12)] pt-8 text-[12px] leading-[16px] text-[lab(25.2471_15.9431_6.95071)] sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-12 flex flex-col items-center gap-6 border-t border-[rgba(110,76,74,0.12)] pt-8 text-[12px] leading-[16px] text-[lab(15.5_11.5_10.8)] sm:flex-row sm:items-center sm:justify-between">
               <div className="flex flex-col gap-1">
                 <p>Copyright 2026 Marbrit Aesthetic. All rights reserved.</p>
                 <p>Coral Gables | Miami | Florida</p>
               </div>
               <div className="flex flex-col items-center gap-2 group">
-                <span className="text-[10px] uppercase tracking-[2.4px] font-semibold text-[rgba(103,66,78,0.5)] group-hover:text-[lab(25.8245_32.3458_11.7661)] transition-colors">
+                <span className="text-[10px] uppercase tracking-[2.4px] font-semibold text-[rgba(103,66,78,0.5)] group-hover:text-[lab(65.6_23.4_15.3)] transition-colors">
                   Marketing by
                 </span>
                 <a
@@ -1410,11 +1428,11 @@ export default function App() {
                   className="flex items-center gap-3 rounded-xl border border-transparent bg-[rgba(110,76,74,0.04)] p-2 transition-all hover:bg-[rgba(110,76,74,0.08)] hover:border-[rgba(110,76,74,0.12)]"
                 >
                   <img
-                    src={assetPath("cdm-marketing-logo.jpeg")}
+                    src={`${import.meta.env.BASE_URL}cdm-marketing-logo.jpeg`}
                     alt="CDM Marketing"
                     className="h-9 w-auto rounded-lg shadow-sm grayscale group-hover:grayscale-0 transition-all"
                   />
-                  <span className="text-[16px] font-bold bg-gradient-to-r from-[lab(13.6294_16.0883_6.40331)] to-[rgba(103,66,78,0.6)] bg-clip-text text-transparent">
+                  <span className="text-[16px] font-bold bg-gradient-to-r from-[lab(15.5_11.5_10.8)] to-[rgba(103,66,78,0.6)] bg-clip-text text-transparent">
                     CDM
                   </span>
                 </a>
