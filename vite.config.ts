@@ -8,7 +8,7 @@ import viteCompression from "vite-plugin-compression";
 import path from "path";
 
 export default defineConfig({
-  base: "/dnielpy-vinyls-deploy/",
+  base: "/",
   plugins: [
     react(),
     tailwindcss(),

@@ -277,6 +277,10 @@ const floatingLinks: ReadonlyArray<{
   { href: links.reviews, label: "Reviews", icon: Star },
 ] as const;
 
+const cookieConsentName = "marbrit_cookie_consent";
+const cookieConsentValue = "accepted";
+const cookieConsentMaxAge = 15552000;
+
 const serviceSpreads = [
   [services[0], services[1]],
   [services[2], services[3]],
@@ -438,6 +442,55 @@ function FloatingSocials() {
         </a>
       ))}
     </div>
+  );
+}
+
+function CookieConsentBanner() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const hasConsent = document.cookie
+      .split("; ")
+      .some((cookie) => cookie === `${cookieConsentName}=${cookieConsentValue}`);
+
+    setIsVisible(!hasConsent);
+  }, []);
+
+  function acceptCookies() {
+    document.cookie = `${cookieConsentName}=${cookieConsentValue}; path=/; max-age=${cookieConsentMaxAge}; SameSite=Lax; Secure`;
+    setIsVisible(false);
+  }
+
+  if (!isVisible) return null;
+
+  return (
+    <aside
+      aria-labelledby="cookie-consent-title"
+      className="fixed inset-x-4 bottom-4 z-[70] max-w-[620px] rounded-[18px] border border-[rgba(110,76,74,0.14)] bg-[rgba(250,243,239,0.97)] p-4 pr-5 text-[lab(15.5_11.5_10.8)] shadow-[rgba(71,37,42,0.18)_0px_24px_60px_-24px,rgba(255,255,255,0.85)_0px_1px_0px_inset] backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-auto sm:p-5"
+      role="region"
+    >
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-w-md">
+          <p
+            id="cookie-consent-title"
+            className="text-[11px] font-medium uppercase tracking-[2px] text-[lab(65.6_23.4_15.3)]"
+          >
+            Cookie notice
+          </p>
+          <p className="mt-2 text-[14px] leading-[22px] text-[oklab(0.260001_0.0475461_0.0154568_/_0.86)]/86">
+            We use essential cookies to keep this site working properly and remember your preferences.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onClick={acceptCookies}
+          className="press-feedback inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-[lab(65.6_23.4_15.3)] px-5 py-3 text-[12px] font-medium text-[lab(98.2272_1.72979_2.3571)] shadow-[rgba(71,37,42,0.16)_0px_18px_34px_-18px] transition-[background-color,transform,box-shadow] duration-200 ease-out hover:scale-[0.98] hover:bg-[lab(58_27_11)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[lab(65.6_23.4_15.3)] motion-reduce:transition-none"
+        >
+          Accept cookies
+        </button>
+      </div>
+    </aside>
   );
 }
 
@@ -1442,6 +1495,7 @@ export default function App() {
         </footer>
 
         <FloatingSocials />
+        <CookieConsentBanner />
       </div>
     </div>
   );
