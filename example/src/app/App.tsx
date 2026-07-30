@@ -2,16 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useTransform, animate } from "motion/react";
 import type { LucideIcon } from "lucide-react";
 import {
+  Accessibility,
+  ALargeSmall,
   CalendarDays,
   ChevronRight,
   Clock3,
+  Contrast,
   Instagram,
+  Link2,
   MapPin,
   MessageCircle,
   Phone,
+  RotateCcw,
   Sparkles,
   Star,
   Ticket,
+  X,
 } from "lucide-react";
 import { SEOHead } from "./shared/lib/SEOHead";
 
@@ -281,10 +287,58 @@ const cookieConsentName = "marbrit_cookie_consent";
 const cookieConsentValue = "accepted";
 const cookieConsentMaxAge = 15552000;
 
+const accessibilityStorageKey = "marbrit_accessibility_preferences";
+
+type AccessibilityTextSize = "normal" | "large" | "larger";
+
+type AccessibilityPreferences = {
+  textSize: AccessibilityTextSize;
+  highContrast: boolean;
+  reduceMotion: boolean;
+  underlineLinks: boolean;
+};
+
+const defaultAccessibilityPreferences: AccessibilityPreferences = {
+  textSize: "normal",
+  highContrast: false,
+  reduceMotion: false,
+  underlineLinks: false,
+};
+
 const serviceSpreads = [
   [services[0], services[1]],
   [services[2], services[3]],
 ] as const;
+
+function readAccessibilityPreferences(): AccessibilityPreferences {
+  try {
+    const storedPreferences = window.localStorage.getItem(accessibilityStorageKey);
+    if (!storedPreferences) return defaultAccessibilityPreferences;
+
+    const parsedPreferences = JSON.parse(storedPreferences) as Partial<AccessibilityPreferences>;
+
+    return {
+      textSize:
+        parsedPreferences.textSize === "large" || parsedPreferences.textSize === "larger"
+          ? parsedPreferences.textSize
+          : "normal",
+      highContrast: Boolean(parsedPreferences.highContrast),
+      reduceMotion: Boolean(parsedPreferences.reduceMotion),
+      underlineLinks: Boolean(parsedPreferences.underlineLinks),
+    };
+  } catch {
+    return defaultAccessibilityPreferences;
+  }
+}
+
+function applyAccessibilityPreferences(preferences: AccessibilityPreferences) {
+  const root = document.documentElement;
+
+  root.dataset.a11yText = preferences.textSize;
+  root.dataset.a11yContrast = preferences.highContrast ? "true" : "false";
+  root.dataset.a11yMotion = preferences.reduceMotion ? "reduce" : "default";
+  root.dataset.a11yUnderlineLinks = preferences.underlineLinks ? "true" : "false";
+}
 
 function FlowerDecoration({
   className,
@@ -494,7 +548,183 @@ function CookieConsentBanner() {
   );
 }
 
+function AccessibilityWidget({
+  onPreferencesChange,
+}: {
+  onPreferencesChange: (preferences: AccessibilityPreferences) => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [preferences, setPreferences] = useState<AccessibilityPreferences>(defaultAccessibilityPreferences);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    const storedPreferences = readAccessibilityPreferences();
+    setPreferences(storedPreferences);
+    applyAccessibilityPreferences(storedPreferences);
+    onPreferencesChange(storedPreferences);
+  }, [onPreferencesChange]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        triggerRef.current?.focus();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  function updatePreferences(nextPreferences: AccessibilityPreferences) {
+    setPreferences(nextPreferences);
+    applyAccessibilityPreferences(nextPreferences);
+    onPreferencesChange(nextPreferences);
+    window.localStorage.setItem(accessibilityStorageKey, JSON.stringify(nextPreferences));
+  }
+
+  function togglePreference(key: "highContrast" | "reduceMotion" | "underlineLinks") {
+    updatePreferences({ ...preferences, [key]: !preferences[key] });
+  }
+
+  function setTextSize(textSize: AccessibilityTextSize) {
+    updatePreferences({ ...preferences, textSize });
+  }
+
+  function resetPreferences() {
+    updatePreferences(defaultAccessibilityPreferences);
+  }
+
+  const accessibilityOptions = [
+    {
+      key: "highContrast" as const,
+      label: "High contrast",
+      description: "Strengthen text and surface contrast.",
+      icon: Contrast,
+      active: preferences.highContrast,
+    },
+    {
+      key: "reduceMotion" as const,
+      label: "Reduce motion",
+      description: "Pause decorative movement and page turns.",
+      icon: Accessibility,
+      active: preferences.reduceMotion,
+    },
+    {
+      key: "underlineLinks" as const,
+      label: "Underline links",
+      description: "Make text links easier to identify.",
+      icon: Link2,
+      active: preferences.underlineLinks,
+    },
+  ] as const;
+
+  return (
+    <div className="a11y-widget fixed left-4 top-28 z-[80] sm:left-5">
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-label={isOpen ? "Close accessibility options" : "Open accessibility options"}
+        aria-expanded={isOpen}
+        aria-controls="accessibility-panel"
+        onClick={() => setIsOpen((currentValue) => !currentValue)}
+        className="press-feedback flex min-h-12 min-w-12 items-center justify-center rounded-full border border-[rgba(110,76,74,0.16)] bg-[rgba(250,243,239,0.96)] text-[lab(65.6_23.4_15.3)] shadow-[rgba(71,37,42,0.18)_0px_18px_38px_-18px] backdrop-blur-md transition-[background-color,color,transform,box-shadow] duration-200 ease-out hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[lab(65.6_23.4_15.3)] motion-reduce:transition-none"
+      >
+        {isOpen ? <X size={20} aria-hidden="true" /> : <Accessibility size={21} aria-hidden="true" />}
+      </button>
+
+      {isOpen && (
+        <section
+          id="accessibility-panel"
+          aria-labelledby="accessibility-panel-title"
+          className="mt-3 w-[calc(100vw-2rem)] max-w-[360px] rounded-[20px] border border-[rgba(110,76,74,0.14)] bg-[rgba(250,243,239,0.98)] p-4 text-[lab(15.5_11.5_10.8)] shadow-[rgba(71,37,42,0.2)_0px_28px_70px_-28px,rgba(255,255,255,0.86)_0px_1px_0px_inset] backdrop-blur-md"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p
+                id="accessibility-panel-title"
+                className="text-[11px] font-medium uppercase tracking-[2px] text-[lab(65.6_23.4_15.3)]"
+              >
+                Accessibility
+              </p>
+              <p className="mt-2 text-[14px] leading-[21px] text-[oklab(0.260001_0.0475461_0.0154568_/_0.86)]/86">
+                Adjust the site for easier reading.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={resetPreferences}
+              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-[rgba(110,76,74,0.12)] bg-white/60 text-[lab(65.6_23.4_15.3)] transition-[background-color,color] duration-150 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[lab(65.6_23.4_15.3)] motion-reduce:transition-none"
+              aria-label="Reset accessibility preferences"
+            >
+              <RotateCcw size={16} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="mt-5">
+            <div className="mb-2 flex items-center gap-2 text-[12px] font-medium text-[lab(15.5_11.5_10.8)]">
+              <ALargeSmall size={16} aria-hidden="true" className="text-[lab(65.6_23.4_15.3)]" />
+              Text size
+            </div>
+            <div className="grid grid-cols-3 gap-2" role="group" aria-label="Text size">
+              {(["normal", "large", "larger"] as const).map((textSize) => (
+                <button
+                  key={textSize}
+                  type="button"
+                  aria-pressed={preferences.textSize === textSize}
+                  onClick={() => setTextSize(textSize)}
+                  className={`min-h-10 rounded-full border px-3 text-[12px] font-medium transition-[background-color,border-color,color] duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[lab(65.6_23.4_15.3)] motion-reduce:transition-none ${preferences.textSize === textSize
+                    ? "border-[lab(65.6_23.4_15.3)] bg-[lab(65.6_23.4_15.3)] text-[lab(98.2272_1.72979_2.3571)]"
+                    : "border-[rgba(110,76,74,0.12)] bg-white/60 text-[lab(15.5_11.5_10.8)] hover:bg-white"
+                    }`}
+                >
+                  {textSize === "normal" ? "Normal" : textSize === "large" ? "Large" : "Larger"}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 space-y-2">
+            {accessibilityOptions.map(({ key, label, description, icon: Icon, active }) => (
+              <button
+                key={key}
+                type="button"
+                aria-pressed={active}
+                onClick={() => togglePreference(key)}
+                className={`flex min-h-14 w-full items-center gap-3 rounded-2xl border px-3 py-2 text-left transition-[background-color,border-color,color] duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[lab(65.6_23.4_15.3)] motion-reduce:transition-none ${active
+                  ? "border-[rgba(110,76,74,0.24)] bg-white text-[lab(15.5_11.5_10.8)]"
+                  : "border-[rgba(110,76,74,0.1)] bg-white/48 text-[lab(15.5_11.5_10.8)] hover:bg-white/78"
+                  }`}
+              >
+                <span
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${active ? "bg-[lab(65.6_23.4_15.3)] text-white" : "bg-[rgba(110,76,74,0.08)] text-[lab(65.6_23.4_15.3)]"
+                    }`}
+                >
+                  <Icon size={17} aria-hidden="true" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[13px] font-medium leading-[17px]">{label}</span>
+                  <span className="mt-0.5 block text-[12px] leading-[17px] text-[oklab(0.260001_0.0475461_0.0154568_/_0.7)]/70">
+                    {description}
+                  </span>
+                </span>
+                <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${active ? "bg-[lab(65.6_23.4_15.3)]" : "bg-[rgba(110,76,74,0.18)]"}`} />
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}
+
 export default function App() {
+  const [accessibilityPreferences, setAccessibilityPreferences] = useState<AccessibilityPreferences>(
+    defaultAccessibilityPreferences
+  );
   const [activeSpread, setActiveSpread] = useState(0);
   const [activeArea, setActiveArea] = useState<string | null>(null);
   const [turning, setTurning] = useState(false);
@@ -511,6 +741,17 @@ export default function App() {
 
   function goToSpread(nextIndex: number, direction: "next" | "prev") {
     if (turning || nextIndex === activeSpread) return;
+
+    if (accessibilityPreferences.reduceMotion) {
+      setDisplaySpread(nextIndex);
+      setActiveSpread(nextIndex);
+      setTurning(false);
+      setTurnDirection(null);
+      pendingRef.current = null;
+      rotation.set(0);
+      turnOpacity.set(1);
+      return;
+    }
 
     const target = direction === "next" ? -180 : 180;
     setTurning(true);
@@ -555,6 +796,8 @@ export default function App() {
   }
 
   useEffect(() => {
+    if (accessibilityPreferences.reduceMotion) return;
+
     const timer = window.setInterval(() => {
       if (!turning) {
         goToSpread((activeSpread + 1) % serviceSpreads.length, "next");
@@ -562,7 +805,7 @@ export default function App() {
     }, 5800);
 
     return () => window.clearInterval(timer);
-  }, [activeSpread, turning]);
+  }, [accessibilityPreferences.reduceMotion, activeSpread, turning]);
 
   function showPrevSpread() {
     goToSpread((activeSpread - 1 + serviceSpreads.length) % serviceSpreads.length, "prev");
@@ -580,6 +823,9 @@ export default function App() {
         textDecoration: "none",
       }}
     >
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Beauty Clinic Coral Gables"
         description="Marbrit Aesthetic in Coral Gables. Facial treatments, laser hair removal, Venus Legacy, PRP, exosomes, and advanced aesthetics. WhatsApp booking available."
@@ -618,7 +864,7 @@ export default function App() {
           </div>
         </header>
 
-        <main>
+        <main id="main-content">
           <section
             id="home"
             className="relative flex min-h-[100svh] items-end overflow-hidden pt-28"
@@ -1495,6 +1741,7 @@ export default function App() {
         </footer>
 
         <FloatingSocials />
+        <AccessibilityWidget onPreferencesChange={setAccessibilityPreferences} />
         <CookieConsentBanner />
       </div>
     </div>
